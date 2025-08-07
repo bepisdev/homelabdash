@@ -9,6 +9,7 @@ WriteMakefile(
     NAME => 'HomelabDash',
     AUTHOR => 'Josh Burns <joshyburnss@gmail.com>',
 		LICENSE => 'perl_5',
+		VERSION => '0.1.0',
 		EXE_FILES => ['bin/homelabdash'],
 		PREREQ_PM => {
 			'YAML::XS' => 0,

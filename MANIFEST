@@ -1,8 +1,6 @@
 bin/homelabdash
 conf.example.yaml
 Dockerfile
-HomelabDash-/META.json
-HomelabDash-/META.yml
 lib/HomelabDash/Config.pm
 lib/HomelabDash/Logger.pm
 lib/HomelabDash/Server.pm
