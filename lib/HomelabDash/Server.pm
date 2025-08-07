@@ -32,3 +32,5 @@ sub run {
 	$logger->info("Starting HomelabDash on port $port");
 	app->start;
 }
+
+1;
