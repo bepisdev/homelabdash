@@ -28,6 +28,7 @@ sub run {
 
 		$c->render(
 			template => 'dashboard',
+			config => $conf,
 			page_title => $conf->{title},
 			sections => $conf->{sections} || [],
 		);
