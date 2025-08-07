@@ -12,6 +12,11 @@ html, body {
 	margin: 1rem auto;
 }
 
+.hero {
+	background-color: var(--bg) !important;
+	color: var(--text);
+}
+
 .title,
 .subtitle,
 a,

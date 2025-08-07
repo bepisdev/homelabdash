@@ -13,8 +13,13 @@
 		<link rel="stylesheet" href="/css/theme/<%= $config->{theme} %>.css">
 	</head>
 	<body class="theme-<%= $config->{theme}%>">
+		<section class="hero">
+			<div class="hero-body">
+				<h1 class="title has-text-centered is-2"><%= $page_title %></h1>
+			</div>
+		</section>
+		<br>
 		<div class="container">
-			<h1 class="title has-text-centered is-2"><%= $page_title %></h1>
 			<div class="columns is-multiline">
 				<!-- Render Section -->
 				% for my $section (@$sections) {
