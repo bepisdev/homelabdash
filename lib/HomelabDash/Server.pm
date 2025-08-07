@@ -7,7 +7,6 @@ use lib "$FindBin::Bin/../lib";
 
 use Mojolicious::Lite -signatures;
 use HomelabDash::Logger;
-use Data::Dump;
 
 app->static->paths(["$FindBin::Bin/../public"]);
 app->renderer->paths(["$FindBin::Bin/../templates"]); 
