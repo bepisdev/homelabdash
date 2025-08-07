@@ -19,4 +19,5 @@ RUN perl Makefile.PL
 RUN make all
 RUN make install
 
-CMD ["perl", "-v"]
+EXPOSE 3333
+CMD ["homelabdash", "--config", "/config/dashboard.yml"]
