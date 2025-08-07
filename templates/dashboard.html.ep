@@ -27,7 +27,9 @@
           </header>
           <div class="card-content">
             <div class="content">
-              Placeholder content for section: <code><%= $section->{widget} || 'N/A' %></code>
+							<% if($section->{widget} == "service_list") { %>
+								<%= include '_service_list', services => $section->{content} %>
+							<% } %>
             </div>
           </div>
         </div>
