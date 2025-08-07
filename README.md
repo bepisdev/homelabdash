@@ -20,24 +20,45 @@ A simple dashboard and homepage for homelabbers.
 
 ### Installation
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/bepisdev/homelabdash.git
-   cd homelabdash
-   ```
+1. Create the config file:
+```sh
+mkdir ./homelabdash_config    
+touch ./homelabdash_config/dashboard.yml
+```
 
-2. Build the Docker image:
-   ```sh
-   docker build -t homelabdash .
-   ```
+```yaml
+title: "My Dashboard"
+theme: 'dark'
+sections:
+  - title: "Media"
+    services:
+      - name: "Jellyfin"
+        url: "http://myjellyfin.internal"
+      - name: "Jellyseerr"
+        url: "http://myjellyseerr.internal"
+  - title: "Services"
+    services:
+      - name: "Radarr"
+        url: "http://radarr.internal"
+      - name: "Sonarr"
+        url: "http://sonarr.internal"
+  - title: "External Links"
+    services:
+      - name: "Github"
+        url: "https://github.com/bepisdev"
+```
 
-### Usage
+2. Run the Homelabdash container:
+```sh
+docker run \
+    -d \
+    --name homelabdash \
+    -p 3333:3333 \
+    -v ./homelabdash_config:/config \
+    joshburnsxyz/homelabdash:latest
+```
 
-1. Run the Homelabdash container:
-   ```sh
-   docker run -d --name homelabdash -p 3333:3333 homelabdash
-   ```
-2. Access the dashboard from your browser at [http://localhost:3333](http://localhost:3333).
+3. Access the dashboard from your browser at [http://localhost:3333](http://localhost:3333).
 
 ## Contributing
 
@@ -46,7 +67,7 @@ Contributions are welcome! Please open issues or submit pull requests to improve
 ## Todo:
 
 - [ ] Make port assignable via environment variable
-- [ ] Publish docker image on docker hub
+- [x] Publish docker image on docker hub
 - [ ] More extensive UI work
 - [ ] Tests
 - [ ] Rewrite server to utilise the proper class based Mojolicious server API
