@@ -2,3 +2,18 @@ html, body {
 	height: 100%;
 	margin: 0;
 }
+
+.box {
+	background-color: var(--bg);
+	color: var(--text);
+}
+
+.title,
+.subtitle,
+a,
+h1,
+h2,
+h3 {
+  color: var(--text);
+}
+

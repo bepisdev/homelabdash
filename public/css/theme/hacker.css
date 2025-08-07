@@ -1,9 +1,7 @@
 body.theme-hacker {
-	color: #00ff88;
-}
-
-.theme-hacker a,
-.theme-hacker h1,
-.theme-hacker h2 {
-	color: #00ff88;
+  --bg: #333745;
+  --primary: #C9EDDC;
+  --text: #8DC954;
+  background-color: var(--bg);
+  color: var(--text);
 }
