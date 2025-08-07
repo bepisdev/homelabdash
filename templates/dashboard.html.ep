@@ -10,20 +10,27 @@
 
   <!-- Base + Theme styles -->
 	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/theme/<%= $config->{theme} %>.css">
 </head>
 	<body class="theme-<%= $config->{theme}%>">
   <section class="section">
     <div class="container">
       <h1 class="title is-2"><%= $page_title %></h1>
-			<h1 class="title is-2"><%= $config->{theme} || 'default' %></h1>
 			<div class="grid">
       % for my $section (@$sections) {
 				<div class="cell box">
-						<h3 class="title is-3"><%= $section->{title} %></h3>
+						<h3 class="subtitle has-text-centered is-3"><%= $section->{title} %></h3>
 						% my @services = @{$section->{services} || []};
 						<ul class="grid">
 							% foreach my $srv (@services) {
-							<li class="cell"><a href="<%= $srv->{url}%>"><%= $srv->{name} %></a></li>
+							<li class="cell">
+								<span class="icon-text">
+									<span class="icon">
+										<img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/<%= lc($srv->{name}) %>.svg" alt="<%= $srv->{name} %> icon" class="icon">
+									</span>
+									<a href="<%= $srv->{url}%>"><%= $srv->{name} %></a>
+								</span>
+							</li>
 							% }
 						<ul>
 				</div>
