@@ -8,6 +8,10 @@ html, body {
 	color: var(--text);
 }
 
+.service_list {
+	margin: 1rem auto;
+}
+
 .title,
 .subtitle,
 a,
@@ -17,3 +21,6 @@ h3 {
   color: var(--text);
 }
 
+img.icon {
+	filter: grayscale(100%);
+}

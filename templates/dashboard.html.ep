@@ -23,7 +23,7 @@
 						% my @services = @{$section->{services} || []};
 						<ul class="grid">
 							% foreach my $srv (@services) {
-							<li class="cell">
+							<li class="cell service_list">
 								<span class="icon-text">
 									<span class="icon">
 										<img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/<%= lc($srv->{name}) %>.svg" alt="<%= $srv->{name} %> icon" class="icon">
