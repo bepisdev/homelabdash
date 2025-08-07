@@ -3,13 +3,24 @@
 use strict;
 use warnings;
 use FindBin;
+use Getopt::Long;
 use lib "$FindBin::Bin/../lib";
 
 use HomelabDash::Config;
 use HomelabDash::Logger;
 use HomelabDash::Server;
 
-my $config = HomelabDash::Config::load_config();
+my $conf_file_path;
+
+GetOptions(
+		'config=s' => \$conf_file_path,
+) or die "Error in command line arguments\n";
+
+if ($conf_file_path) {
+	print "Using config file $conf_file_path";
+}
+
+my $config = HomelabDash::Config::load_config($conf_file_path);
 my $logger = HomelabDash::Logger::init($config->{server_log_level});
 
 # Run server
