@@ -1,6 +1,10 @@
 use strict;
 use ExtUtils::MakeMaker;
 
+my %clean = (
+    'FILES' => '$(DISTVNAME).tar$(SUFFIX) *.ppd'
+);
+
 WriteMakefile(
     NAME => 'HomelabDash',
     AUTHOR => 'Josh Burns <joshyburnss@gmail.com>',
@@ -13,4 +17,7 @@ WriteMakefile(
 			'FindBin'	=> 0,
 		},
 		ABSTRACT => 'A simple web dashboard for your homelab',
+		'clean' => \%clean,
 );
+
+
