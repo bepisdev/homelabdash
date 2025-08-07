@@ -1,15 +1,24 @@
 use strict;
 use ExtUtils::MakeMaker;
 
+my $VERSION = '0.1.0';
+
 my %clean = (
     'FILES' => '$(DISTVNAME).tar$(SUFFIX) *.ppd'
 );
+
+sub MY::postamble {
+		return <<'END';
+dockerimg:
+	docker build -t homelabdash:latest -t homelabdash:$VERSION .
+END
+};
 
 WriteMakefile(
     NAME => 'HomelabDash',
     AUTHOR => 'Josh Burns <joshyburnss@gmail.com>',
 		LICENSE => 'perl_5',
-		VERSION => '0.1.0',
+		VERSION => $VERSION,
 		EXE_FILES => ['bin/homelabdash'],
 		PREREQ_PM => {
 			'YAML::XS' => 0,
