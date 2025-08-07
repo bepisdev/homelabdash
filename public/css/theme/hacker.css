@@ -1,0 +1,10 @@
+body.theme-hacker {
+	background-color: #000000;
+	color: #00ff88;
+}
+
+.theme-hacker a,
+.theme-hacker h1,
+.theme-hacker h2 {
+	color: #00ff88;
+}
