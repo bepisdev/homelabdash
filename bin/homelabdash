@@ -17,7 +17,7 @@ GetOptions(
 ) or die "Error in command line arguments\n";
 
 if ($conf_file_path) {
-	print "Using config file $conf_file_path";
+	print "Using config file $conf_file_path\n";
 }
 
 my $config = HomelabDash::Config::load_config($conf_file_path);
