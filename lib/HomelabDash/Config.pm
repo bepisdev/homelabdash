@@ -6,13 +6,6 @@ use YAML::XS qw(LoadFile);
 
 our $CONFIG;
 
-# our $DEFAULT_CONFIG = {
-# 	server_port => 3333,
-# 	server_log_level => 'INFO',
-# 	sections => [],
-# 	theme => "dark",
-# };
-
 sub load_config {
 	my ($config_path) = @_;
 
