@@ -10,8 +10,6 @@ use HomelabDash::Logger;
 use Data::Dump;
 
 sub run {
-	plugin 'AutoReload' => {};
-
 	my ($config) = @_;
 
 	my $logger = HomelabDash::Logger::get();

@@ -11,7 +11,6 @@ WriteMakefile(
 			'Log::Log4perl'	=> 0,
 			'Mojolicious::Lite' => 0,
 			'FindBin'	=> 0,
-			'Mojolicious::Plugin::AutoReload' => 0,
 		},
 		ABSTRACT => 'A simple web dashboard for your homelab',
 );
