@@ -15,6 +15,7 @@ sub run {
 	my $port = $config->{server_port} || 3333;
 
 	app->defaults(config => $config);
+	app->renderer->paths(["$FindBin::Bin/../templates"]); 
 
 	get '/' => sub {
 		my $c = shift;
@@ -30,7 +31,7 @@ sub run {
 	};
 
 	$logger->info("Starting HomelabDash on port $port");
-	app->start;
+	app->start('daemon', '-l', "http://*:$port");
 }
 
 1;
