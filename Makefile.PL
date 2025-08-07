@@ -10,7 +10,7 @@ my %clean = (
 sub MY::postamble {
 		my $custom_targets = <<"END";
 dockerimg:
-	docker build -t homelabdash:latest -t homelabdash:$VERSION .
+	docker build -t joshburnsxyz/homelabdash:latest -t joshburnsxyz/homelabdash:$VERSION .
 END
 };
 
