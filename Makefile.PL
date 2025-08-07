@@ -1,14 +1,6 @@
 use strict;
 use ExtUtils::MakeMaker;
 
-# my %clean = (
-#     'FILES' => '$(DISTVNAME).tar$(SUFFIX) *.ppd'
-# );
-
-# my %dist = (
-#     PREOP => 'perldoc -t > README',
-# );
-
 WriteMakefile(
     NAME => 'HomelabDash',
     AUTHOR => 'Josh Burns <joshyburnss@gmail.com>',
