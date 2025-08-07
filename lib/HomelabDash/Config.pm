@@ -9,6 +9,8 @@ our $CONFIG;
 sub load_config {
 	my $config_path = '/config/dashboard.yml';
 
+	# FIXME: Find a better solution for allowing server to boot without a config file.
+	
 	# unless (-e $config_path) {
 	# 	die "Configuration file not found: $config_path";
 	# }
