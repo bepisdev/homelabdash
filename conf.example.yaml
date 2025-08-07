@@ -1,5 +1,5 @@
 title: 'HomelabDash Example'
-theme: 'dark'
+theme: 'hacker'
 sections:
   - title: "1"
   - title: "2"

@@ -14,7 +14,10 @@ sub load_config {
 	# Merge ENV variables into config
 	$yaml_config->{server_port}	= $ENV{'PORT'} || 3333;
 	$yaml_config->{server_log_level} = $ENV{'LOG_LEVEL'} || 'INFO';
-	$yaml_config->{theme} = $ENV{'THEME'} || 'dark';
+
+	if(defined $ENV{'THEME'}) {
+		$yaml_config->{theme} = $ENV{'THEME'};
+	}
 
 	$CONFIG = $yaml_config;
 	return $CONFIG;
