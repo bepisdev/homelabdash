@@ -7,9 +7,10 @@ use lib "$FindBin::Bin/../lib";
 
 use Mojolicious::Lite -signatures;
 use HomelabDash::Logger;
+use Data::Dump;
 
 sub run {
-	my ($class, $config) = @_;
+	my ($config) = @_;
 
 	my $logger = HomelabDash::Logger::get();
 	my $port = $config->{server_port} || 3333;
@@ -19,9 +20,14 @@ sub run {
 
 	get '/' => sub {
 		my $c = shift;
+		my $conf = app->defaults->{config};
+
 		$logger->info("Rendering dashboard page");
+
 		$c->render(
 			template => 'dashboard',
+			page_title => $conf->{title},
+			sections => $conf->{sections} || [],
 		);
 	};
 
