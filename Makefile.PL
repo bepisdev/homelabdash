@@ -8,7 +8,7 @@ my %clean = (
 );
 
 sub MY::postamble {
-		return <<'END';
+		my $custom_targets = <<"END";
 dockerimg:
 	docker build -t homelabdash:latest -t homelabdash:$VERSION .
 END
