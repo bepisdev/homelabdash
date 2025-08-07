@@ -2,14 +2,11 @@ package HomelabDash::Server;
 use strict;
 use warnings;
 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
-
 use Mojolicious::Lite -signatures;
 use HomelabDash::Logger;
 
-app->static->paths(["$FindBin::Bin/../public"]);
-app->renderer->paths(["$FindBin::Bin/../templates"]); 
+app->static->paths(["/opt/homelabdash/public"]);
+app->renderer->paths(["/opt/homelabdash/templates"]); 
 
 sub run {
 	my ($config) = @_;
