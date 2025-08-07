@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= $page_title %></title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><%= $page_title %></title>
 
-  <!-- Bulma CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<!-- Bulma CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-  <!-- Base + Theme styles -->
-	<link rel="stylesheet" href="/css/base.css">
-	<link rel="stylesheet" href="/css/theme/<%= $config->{theme} %>.css">
-</head>
+		<!-- Base + Theme styles -->
+		<link rel="stylesheet" href="/css/base.css">
+		<link rel="stylesheet" href="/css/theme/<%= $config->{theme} %>.css">
+	</head>
 	<body class="theme-<%= $config->{theme}%>">
-  <section class="section">
-    <div class="container">
-      <h1 class="title is-2"><%= $page_title %></h1>
-			<div class="grid">
-      % for my $section (@$sections) {
-				<div class="cell box">
-						<h3 class="subtitle has-text-centered is-3"><%= $section->{title} %></h3>
-						% my @services = @{$section->{services} || []};
-						<ul class="grid">
-							% foreach my $srv (@services) {
-							<li class="cell service_list">
-								<span class="icon-text">
-									<span class="icon">
-										<img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/<%= lc($srv->{name}) %>.svg" alt="<%= $srv->{name} %> icon" class="icon">
-									</span>
-									<a href="<%= $srv->{url}%>"><%= $srv->{name} %></a>
-								</span>
-							</li>
+		<div class="container">
+			<h1 class="title has-text-centered is-2"><%= $page_title %></h1>
+			<div class="columns is-multiline">
+				<!-- Render Section -->
+				% for my $section (@$sections) {
+					% if ($section->{title} =~ /meta\:hr/) {
+						<div class="column is-full">
+							<hr/>
+						</div>
+					% } else {
+						<div class="column">
+							<h3 class="subtitle has-text-centered is-3"><%= $section->{title} %></h3>
+							<!-- Render services list -->
+							% my @services = @{$section->{services} || []};
+							% if (@services > 0) {
+								<ul class="grid">
+									% foreach my $srv (@services) {
+									<li class="cell service_list">
+										<span class="icon-text">
+											<span class="icon">
+												<img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/<%= lc($srv->{name}) %>.svg" alt="<%= $srv->{name} %> icon" class="icon">
+											</span>
+											<a href="<%= $srv->{url}%>"><%= $srv->{name} %></a>
+										</span>
+									</li>
+									% }
+								<ul>
 							% }
-						<ul>
-				</div>
-      % }
+							<!-- End Render services list -->
+						</div>
+					% }
+				% }
 			</div>
-    </div>
-  </section>
-</body>
+		</div>
+	</body>
 </html>
