@@ -1,0 +1,6 @@
+title: 'HomelabDash Example'
+theme: 'dark'
+sections:
+  - title: "1"
+  - title: "2"
+  - title: "3"
