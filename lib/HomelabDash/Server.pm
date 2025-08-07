@@ -16,6 +16,7 @@ sub run {
 	my $port = $config->{server_port} || 3333;
 
 	app->defaults->{config} = $config;
+	app->static->paths(["$FindBin::Bin/../public"]);
 	app->renderer->paths(["$FindBin::Bin/../templates"]); 
 
 	get '/' => sub {
