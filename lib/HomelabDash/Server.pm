@@ -25,7 +25,7 @@ sub run {
 		$c->render(
 			template => 'dashboard',
 			sections => $config->{sections} || [],
-			title    => $config->{title} || 'Homelab Dashboard'
+			page_title => $config->{page_title} || 'HomelabDash'
 		);
 	};
 
