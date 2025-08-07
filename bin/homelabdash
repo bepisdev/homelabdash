@@ -9,5 +9,8 @@ use HomelabDash::Config;
 use HomelabDash::Logger;
 use HomelabDash::Server;
 
-my $config = HomelabDash::Config::load_config("/config/dashboard.yml");
+my $config = HomelabDash::Config::load_config();
 my $logger = HomelabDash::Logger::init($config->{server_log_level});
+
+# Run server
+HomelabDash::Server::run($config);
