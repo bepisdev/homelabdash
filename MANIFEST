@@ -1,0 +1,17 @@
+bin/homelabdash
+conf.example.yaml
+Dockerfile
+HomelabDash-/META.json
+HomelabDash-/META.yml
+lib/HomelabDash/Config.pm
+lib/HomelabDash/Logger.pm
+lib/HomelabDash/Server.pm
+Makefile.PL
+MANIFEST			This list of files
+public/css/base.css
+public/css/theme/dark.css
+public/css/theme/default.css
+public/css/theme/hacker.css
+README.md
+t/logger.t
+templates/dashboard.html.ep
