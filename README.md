@@ -74,5 +74,8 @@ Contributions are welcome! Please open issues or submit pull requests to improve
 - [ ] Implement proper error pages
 - [ ] Run server in production mode to prevent leaking debug information
 - [ ] Write logs to file
+- [ ] Implement hot-reloading on config file change
+- [ ] Screenshots for README
+- [ ] Better documentation with configuration references
 - [ ] Create widgets for things like time and hardware metrics (I/O, resources used/available, etc.)
 - [ ] Create integration widgets for common apps like radarr and sonarr calendars
