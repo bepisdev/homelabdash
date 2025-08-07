@@ -6,20 +6,28 @@ use YAML::XS qw(LoadFile);
 
 our $CONFIG;
 
+# our $DEFAULT_CONFIG = {
+# 	server_port => 3333,
+# 	server_log_level => 'INFO',
+# 	sections => [],
+# 	theme => "dark",
+# };
+
 sub load_config {
-	my $config_path = '/config/dashboard.yml';
+	my ($config_path) = @_;
 
 	# FIXME: Find a better solution for allowing server to boot without a config file.
 	
-	# unless (-e $config_path) {
-	# 	die "Configuration file not found: $config_path";
-	# }
+	unless (-e $config_path) {
+		die "Configuration file not found: $config_path";
+	}
 
 	my $yaml_config = LoadFile($config_path) if -e $config_path;
 
 	# Merge ENV variables into config
-	$yaml_config->{server_port}	= $ENV{'PORT'} if defined $ENV{'PORT'};
-	$yaml_config->{server_log_level} = $ENV{'LOG_LEVEL'} if defined $ENV{'LOG_LEVEL'};
+	$yaml_config->{server_port}	= $ENV{'PORT'} if defined $ENV{'PORT'} || 3333;
+	$yaml_config->{server_log_level} = $ENV{'LOG_LEVEL'} if defined $ENV{'LOG_LEVEL'} || 'INFO';
+	$yaml_config->{theme} = $ENV{'THEME'} if defined $ENV{'THEME'} || 'dark';
 
 	$CONFIG = $yaml_config;
 	return $CONFIG;
