@@ -1,3 +1,5 @@
 <ul>
-	<li>service here</li>
+	% for my $item (@$services) {
+		<li><a href="<%= $item->{url} %>"><%= $item->{name} %></a></li>
+	% }
 </ul>
