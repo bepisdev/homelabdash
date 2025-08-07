@@ -1,7 +1,22 @@
-FROM perl
+FROM alpine:latest
 WORKDIR /opt/homelabdash
-COPY conf.example.yml /config/dashboard.yml
+
+ENV PERL_MM_USE_DEFAULT=1
+
+RUN apk add --no-cache \
+    curl \
+    openssl \
+    perl \
+    build-base \
+    perl-dev \
+		perl-app-cpanminus
+
 COPY . .
-RUN cpanm --installdeps -n .
-EXPOSE 3333
-CMD perl bin/homelabdash.pl --config /config/dashboard.yml
+COPY conf.example.yaml /config/dashboard.yml
+
+RUN cpanm --notest --install-deps .
+RUN perl Makefile.PL
+RUN make all
+RUN make install
+
+CMD ["perl", "-v"]
